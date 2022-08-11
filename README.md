@@ -7,12 +7,12 @@ This project is for testing skill purposes. Was forked from https://github.com/P
 	- DDD CQRS architecture pattern implementation: https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/ddd-oriented-microservice
 	- Mediator with MediatR: https://github.com/jbogard/MediatR
 	- Autofac for components registration IoC, and easy Injection of parameter constructors: https://autofac.org/ 
-	- Entity Framework 6 was implemented in order to avoid using a file as a data storage. However Users.txt file still can be used to add several users reading from it. Code First approach is used.
-	- Swagger definitions are infered from the code and comments in controller's methods.
-	- All projects have been migrated to NET 6, in order to achieve zero obsolescense.
+	- Entity Framework 6 was implemented in order to avoid using a file as a data storage. However, Users.txt file still can be used to add several users reading from it. Code First approach is used.
+	- Swagger definitions are inferred from the code and comments in controller's methods.
+	- All projects have been migrated to NET 6 to achieve zero obsolescence.
 
-### Code refactor
-	- All bussines logic was removed from UserController.
+### Code refactors
+	- All business logic was removed from UserController.
 	- CQRS pattern commands were created.
 	- Base repository and User Repository were created.
 	- Strategy design pattern is used to calculate gift amount based in user type.
@@ -22,13 +22,13 @@ This project is for testing skill purposes. Was forked from https://github.com/P
 
 ### Usage:
 	- The IDE used is Visual Studio 2022
-	- Run API project will create (if does not exists) an SQLServer localdb database named "recruitment_db". Then, will open a page with the swagger definitions of the API.
-	- In swagger there are two endpoints for Users controller definition:
+	- Run API project will create (if does not exist) an SQLServer localdb database named "recruitment_db". Then, will open a page with the swagger definitions of the API.
+	- In swagger there are two endpoints for User's controller definition:
 		1.- add: allows to add a user to database.
-		2.- add-from-file: allows to read an absolute path to a users file and process that file. Example: C:\Users.txt. 
+		2.- add-from-file: allows to read an absolute path to a file (Users.txt) and process that file. Example: C:\Users.txt. 
 		    This will add the 2 first users and will fail when process the 3rd.
-		- To try all endpoints besides the other parameters allways must complete api-version field with 1.
-	- Run integrationn tests in test project will create (if does not exists) an SQLServer localdb database named "recruitment_db".
+		- To try all endpoints besides the other parameters always must complete api-version field with 1.
+	- Running integration tests in test project will create (if does not exist) an SQLServer localdb database named "recruitment_db".
 	- Database recruitment_db must appear in SQL Server Objects Explorer
 	
 ### Technical debt:
