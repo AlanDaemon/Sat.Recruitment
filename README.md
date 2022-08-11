@@ -12,7 +12,7 @@ This project is for testing skill purposes. Was forked from https://github.com/P
 	- All projects have been migrated to NET 6 to achieve zero obsolescence.
 
 ### Code refactors
-	- All business logic was removed from UserController.
+	- All bussines logic was removed from UserController.
 	- CQRS pattern commands were created.
 	- Base repository and User Repository were created.
 	- Strategy design pattern is used to calculate gift amount based in user type.
