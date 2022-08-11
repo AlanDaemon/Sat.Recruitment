@@ -5,7 +5,27 @@ VisualStudioVersion = 16.0.30709.64
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sat.Recruitment.Api", "Sat.Recruitment.Api\Sat.Recruitment.Api.csproj", "{1F342EA2-E7B1-4E53-AB93-9C62288D3FB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sat.Recruitment.Test", "Sat.Recruitment.Test\Sat.Recruitment.Test.csproj", "{42E696E9-2672-4B91-AD96-353A69F7219C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sat.Recruitment.Test", "Sat.Recruitment.Test\Sat.Recruitment.Test.csproj", "{42E696E9-2672-4B91-AD96-353A69F7219C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9765864C-0FB9-4BFE-BB40-870F26F93943}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-entrypoint", "1-entrypoint", "{F5619144-3A6C-4C8C-A749-65FE5DA3F8C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-core", "2-core", "{6B4EDF50-D36E-4E41-9FB4-1EA86BB95D92}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-infraestructure", "3-infraestructure", "{6F6794B6-AC3C-4728-A072-3AC538979BB9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A88C260E-3A2E-402D-94BD-26E731098A08}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-entrypoint", "1-entrypoint", "{8A5C7578-97AE-4803-BD9C-ECC773A39304}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sat.Recruitment.Application", "Sat.Recruitment.Application\Sat.Recruitment.Application.csproj", "{F4AE4CAB-4A0F-4EE5-9C48-E13AFEA247C7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sat.Recruitment.Domain", "Sat.Recruitment.Domain\Sat.Recruitment.Domain.csproj", "{06B80C21-967F-4186-BBD6-13484BD062CA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sat.Recruitment.Infraestructure", "Sat.Recruitment.Infraestructure\Sat.Recruitment.Infraestructure.csproj", "{40052DB5-E5CE-4E41-B276-C180BCBBCC5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sat.Recruitment.Infraestructure.Bootstrap", "Sat.Recruitment.Infraestructure.Bootstrap\Sat.Recruitment.Infraestructure.Bootstrap.csproj", "{B3817FDB-7174-4445-A6DC-F993C2309F2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +41,37 @@ Global
 		{42E696E9-2672-4B91-AD96-353A69F7219C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42E696E9-2672-4B91-AD96-353A69F7219C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42E696E9-2672-4B91-AD96-353A69F7219C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4AE4CAB-4A0F-4EE5-9C48-E13AFEA247C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4AE4CAB-4A0F-4EE5-9C48-E13AFEA247C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4AE4CAB-4A0F-4EE5-9C48-E13AFEA247C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4AE4CAB-4A0F-4EE5-9C48-E13AFEA247C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06B80C21-967F-4186-BBD6-13484BD062CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06B80C21-967F-4186-BBD6-13484BD062CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06B80C21-967F-4186-BBD6-13484BD062CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06B80C21-967F-4186-BBD6-13484BD062CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40052DB5-E5CE-4E41-B276-C180BCBBCC5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40052DB5-E5CE-4E41-B276-C180BCBBCC5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40052DB5-E5CE-4E41-B276-C180BCBBCC5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40052DB5-E5CE-4E41-B276-C180BCBBCC5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3817FDB-7174-4445-A6DC-F993C2309F2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3817FDB-7174-4445-A6DC-F993C2309F2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3817FDB-7174-4445-A6DC-F993C2309F2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3817FDB-7174-4445-A6DC-F993C2309F2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1F342EA2-E7B1-4E53-AB93-9C62288D3FB0} = {F5619144-3A6C-4C8C-A749-65FE5DA3F8C7}
+		{42E696E9-2672-4B91-AD96-353A69F7219C} = {8A5C7578-97AE-4803-BD9C-ECC773A39304}
+		{F5619144-3A6C-4C8C-A749-65FE5DA3F8C7} = {9765864C-0FB9-4BFE-BB40-870F26F93943}
+		{6B4EDF50-D36E-4E41-9FB4-1EA86BB95D92} = {9765864C-0FB9-4BFE-BB40-870F26F93943}
+		{6F6794B6-AC3C-4728-A072-3AC538979BB9} = {9765864C-0FB9-4BFE-BB40-870F26F93943}
+		{8A5C7578-97AE-4803-BD9C-ECC773A39304} = {A88C260E-3A2E-402D-94BD-26E731098A08}
+		{F4AE4CAB-4A0F-4EE5-9C48-E13AFEA247C7} = {6B4EDF50-D36E-4E41-9FB4-1EA86BB95D92}
+		{06B80C21-967F-4186-BBD6-13484BD062CA} = {6B4EDF50-D36E-4E41-9FB4-1EA86BB95D92}
+		{40052DB5-E5CE-4E41-B276-C180BCBBCC5B} = {6F6794B6-AC3C-4728-A072-3AC538979BB9}
+		{B3817FDB-7174-4445-A6DC-F993C2309F2D} = {6F6794B6-AC3C-4728-A072-3AC538979BB9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2A05765-05B9-484D-8D3D-506849EB716F}

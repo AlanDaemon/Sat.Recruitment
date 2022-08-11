@@ -1,27 +1,33 @@
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Serilog;
 
 namespace Sat.Recruitment.Api
-{
+{ 
     public class Program
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+        public static IHostBuilder CreateWebHostBuilder(string[] args)
+        {
+            return Host.CreateDefaultBuilder(args)
+                        .UseSerilog((hostingContext, loggerConfiguration) =>
+                        {
+                            loggerConfiguration.ReadFrom.Configuration(hostingContext.Configuration);
+                        })
+                       .UseServiceProviderFactory(new AutofacServiceProviderFactory())
+                       .ConfigureWebHostDefaults(webBuilder =>
+                        {
+                            webBuilder.ConfigureKestrel(serverOptions =>
+                            {
+                                serverOptions.AddServerHeader = false;
+                            })
+                        .UseStartup<Startup>();
+                        });
+        }
     }
 }

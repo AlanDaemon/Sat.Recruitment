@@ -1,57 +1,52 @@
+using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Sat.Recruitment.Infrastructure.Bootstrap;
 
 namespace Sat.Recruitment.Api
 {
     public class Startup
     {
+        private readonly ApplicationStartup applicationStartup;
+
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            this.applicationStartup = new ApplicationStartup(configuration);
         }
 
-        public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
+        // For more information on how to configure your application visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-            services.AddSwaggerGen();
+            this.ConfigureServicesAux(services); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
-            if (env.IsDevelopment())
+            this.applicationStartup.Configure(app, provider, env);
+            if (env.EnvironmentName == Environments.Development)
             {
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage();              
             }
-            app.UseSwagger();
+        }
 
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
-            // specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-            });
-            app.UseRouting();
+        // ConfigureContainer is where you can register things directly
+        // with Autofac. This runs after ConfigureServices so the things
+        // here will override registrations made in ConfigureServices.
+        // Don't build the container; that gets done for you by the factory.
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            this.applicationStartup.ConfigureContainer(builder);
+        }
 
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+        protected virtual void ConfigureServicesAux(IServiceCollection services)
+        {
+            this.applicationStartup.ConfigureServices(services);
         }
     }
 }
