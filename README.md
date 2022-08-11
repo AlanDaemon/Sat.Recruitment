@@ -1,7 +1,7 @@
 ## Refactor Summary
 
 ### Overview 
-This is a test project. Was forked from https://github.com/Paramo-Tech/Sat.Recruitment and refactored.
+This project is for testing skill purposes. Was forked from https://github.com/Paramo-Tech/Sat.Recruitment and refactored.
 
 ### Architecture and technical refactor
 	- DDD CQRS architecture pattern implementation: https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/ddd-oriented-microservice
