@@ -25,8 +25,8 @@ This is a test project. Was forked from https://github.com/Paramo-Tech/Sat.Recru
 	- Run API project will create (if does not exists) an SQLServer localdb database named "recruitment_db". Then, will open a page with the swagger definitions of the API.
 	- In swagger there are two endpoints for Users controller definition:
 		1.- add: allows to add a user to database.
-		2.- add-from-file: allows to read an absolute path to a users file and process that file. Example: C:\Users.txt.
-		To try all endpoints besides the other parameters allways must complete api-version field with 1.
+		2.- add-from-file: allows to read an absolute path to a users file and process that file. Example: C:\Users.txt. This will add the 2 first users and 			  will fail when process the 3rd.
+		- To try all endpoints besides the other parameters allways must complete api-version field with 1.
 	- Run integrationn tests in test project will create (if does not exists) an SQLServer localdb database named "recruitment_db".
 	- Database recruitment_db must appear in SQL Server Objects Explorer
 	
