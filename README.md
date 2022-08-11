@@ -38,4 +38,5 @@ This project is for testing skill purposes. Was forked from https://github.com/P
 	- Add more unit and integration tests.
 	- Make async/awaitable GetFiltered in UserRepository.
 	- Improve error messages.
+	- User properties validation with FluentValidation
 	
