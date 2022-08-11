@@ -19,15 +19,7 @@ This is a test project. Was forked from https://github.com/Paramo-Tech/Sat.Recru
 ### Tests
 	- Unit and integration test has been added.	
 
-### Technical debt:
-	- Create an entity UserType related to User (with EF migration a table UserTypes related by an FK to Users table).
-	- File validations (file exists, file type, file format, etc.).
-	- Don't stop processing the file if a user is already added to the database.
-	- Add more unit and integration tests.
-	- Make async/awaitable GetFiltered in UserRepository.
-	- Improve error messages.
-
-### Use:
+### Usage:
 	- Run API project will create (if does not exists) an SQLServer localdb database named "recruitment_db". Then, will open a page with the swagger definitions of the API.
 	- In swagger there are two endpoints for Users controller definition:
 		1.- add: allows to add a user to database.
@@ -35,5 +27,11 @@ This is a test project. Was forked from https://github.com/Paramo-Tech/Sat.Recru
 		To try all endpoints besides the other parameters allways must complete api-version field with 1.
 	- Run tntegrationn tests in test project will create (if does not exists) an SQLServer localdb database named "recruitment_db".
 	
-	
+### Technical debt:
+	- Create an entity UserType related to User (with EF migration a table UserTypes related by an FK to Users table).
+	- File validations (file exists, file type, file format, etc.).
+	- Don't stop processing the file if a user is already added to the database.
+	- Add more unit and integration tests.
+	- Make async/awaitable GetFiltered in UserRepository.
+	- Improve error messages.
 	
