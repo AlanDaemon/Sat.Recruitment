@@ -3,12 +3,13 @@
 ### Overview 
 This is a test project. Was forked from https://github.com/Paramo-Tech/Sat.Recruitment and refactored.
 
-### Architecture refactor
+### Architecture and technical refactor
 	- DDD CQRS architecture pattern implementation: https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/ddd-oriented-microservice
 	- Mediator with MediatR: https://github.com/jbogard/MediatR
 	- Autofac for components registration IoC, and easy Injection of parameter constructors: https://autofac.org/ 
 	- Entity Framework 6 was implemented in order to avoid using a file as a data storage. However Users.txt file still can be used to add several users reading from it. Code First approach is used.
 	- Swagger definitions are infered from the code and comments in controller's methods.
+	- All projects have been migrated to NET 6, in order to achieve zero obsolescense.
 
 ### Code refactor
 	- All bussines logic was removed from UserController.
@@ -25,7 +26,7 @@ This is a test project. Was forked from https://github.com/Paramo-Tech/Sat.Recru
 		1.- add: allows to add a user to database.
 		2.- add-from-file: allows to read an absolute path to a users file and process that file. Example: C:\Users.txt.
 		To try all endpoints besides the other parameters allways must complete api-version field with 1.
-	- Run tntegrationn tests in test project will create (if does not exists) an SQLServer localdb database named "recruitment_db".
+	- Run integrationn tests in test project will create (if does not exists) an SQLServer localdb database named "recruitment_db".
 	
 ### Technical debt:
 	- Create an entity UserType related to User (with EF migration a table UserTypes related by an FK to Users table).
