@@ -36,7 +36,6 @@ This project is for skill testing purposes. Was forked from https://github.com/P
 	- File validations (file exists, file type, file format, etc.).
 	- Don't stop processing the file if a user is already added to the database.
 	- Add more unit and integration tests.
-	- Make async/awaitable GetFiltered in UserRepository.
 	- Improve error messages.
 	- User properties validation with FluentValidation
 	

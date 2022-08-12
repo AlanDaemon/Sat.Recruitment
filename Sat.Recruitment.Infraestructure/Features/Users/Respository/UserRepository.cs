@@ -1,39 +1,61 @@
 ﻿using Sat.Recruitment.Domain.Features.Users.Entities;
 using Sat.Recruitment.Domain.Features.Users.Repository;
 using Sat.Recruitment.Infraestructure.Database;
+using Sat.Recruitment.Infraestructure.Features.Shared;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Sat.Recruitment.Infrastructure.Features.Users.Repository
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : BaseRepository<User>, IUserRepository
     {
-        protected readonly RecruitmentDbContext context;
+        public UserRepository(RecruitmentDbContext context) : base(context) { }
 
-        public UserRepository(RecruitmentDbContext context)  
+        public new async Task Add(User entity)
         {
-            this.context = context;
+            await base.Add(entity);
         }
 
-        public Task<User> GetById(int id)
+        public new Task<int> CountAll()
         {
             throw new NotImplementedException();
         }
 
-
-        public async Task<IEnumerable<User>> GetFiltered(Expression<Func<User, bool>> expression)
+        public new Task<int> CountWhere(Expression<Func<User, bool>> predicate)
         {
-            return context.Users.Where(expression);
+            throw new NotImplementedException();
         }
-     
-        public async Task<User> Add(User entity)
+
+        public new Task<User> FirstOrDefault(Expression<Func<User, bool>> predicate)
         {
-            context.Users.Add(entity);
-            await context.SaveChangesAsync();
-            return entity;
+            throw new NotImplementedException();
+        }
+
+        public new Task<IEnumerable<User>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public new Task<User> GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public new async Task<IEnumerable<User>> GetWhere(Expression<Func<User, bool>> predicate)
+        {
+            return await base.GetWhere(predicate);
+        }
+
+        public new Task Remove(User entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public new Task Update(User entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -35,7 +35,7 @@ namespace Sat.Recruitment.Application.Features.Users.Commands
             }
 
             var userExistsFilter = new UserExpressionFilters().Exists(request.User);
-            var userExists = await this.userRepository.GetFiltered(userExistsFilter);
+            var userExists = await this.userRepository.GetWhere(userExistsFilter);
 
             if (userExists.Any())
             {
