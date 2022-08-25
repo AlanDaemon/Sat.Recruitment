@@ -14,7 +14,7 @@ namespace Sat.Recruitment.Test.UnitTests.Features.Users
 {
     public class UserAddCommandHandlerTest
     {
-        private AddUserCommandValidator validator  = new AddUserCommandValidator();
+        private readonly AddUserCommandValidator validator  = new();
 
         [Fact]
         public async Task Handle_UserAddedOK_ReturnUser()

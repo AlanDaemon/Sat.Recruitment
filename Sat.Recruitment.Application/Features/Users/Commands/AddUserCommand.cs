@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
 using Sat.Recruitment.Application.Features.Users.GiftCalculator;
-using Sat.Recruitment.Domain.Enums;
 using Sat.Recruitment.Domain.Features.Users.Entities;
 using Sat.Recruitment.Domain.Features.Users.Repository;
 using System;
