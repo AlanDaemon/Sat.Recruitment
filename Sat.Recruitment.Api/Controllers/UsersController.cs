@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Sat.Recruitment.API.Models.Users;
 using Sat.Recruitment.Application.Features.Users.Commands;
+using Sat.Recruitment.Domain.Enums;
+using Sat.Recruitment.Domain.Features.Users.Entities;
 using System.Threading.Tasks;
 
 namespace Sat.Recruitment.Api.Controllers
@@ -30,7 +32,7 @@ namespace Sat.Recruitment.Api.Controllers
                     Email = model.Email,
                     Address = model.Address,
                     Phone = model.Phone,
-                    UserType = model.UserType,
+                    UserTypeId = UserTypes.Normal,
                     Money = model.Money
                 }
             };

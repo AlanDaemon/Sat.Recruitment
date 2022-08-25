@@ -1,7 +1,5 @@
 ﻿using MediatR;
-using Sat.Recruitment.Domain.Enums;
-using Sat.Recruitment.Domain.Features.Users.Entities;
-using Sat.Recruitment.Domain.Features.Users.Repository;
+using Sat.Recruitment.Application.Features.Users.Files;
 using System;
 using System.IO;
 using System.Threading;
@@ -16,42 +14,24 @@ namespace Sat.Recruitment.Application.Features.Users.Commands
 
     public class AddUsersFromFileCommandHandler : IRequestHandler<AddUsersFromFileCommand, bool>
     {
-        private readonly IUserRepository userRepository;
+        private readonly IMediator mediator;
        
-        public AddUsersFromFileCommandHandler(IUserRepository userRepository)
+        public AddUsersFromFileCommandHandler(IMediator mediator)
         {
-            this.userRepository = userRepository;
+            this.mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
         public async Task<bool> Handle(AddUsersFromFileCommand request, CancellationToken cancellationToken)
         {
-            var addUserCommandHandler = new AddUserCommandHandler(this.userRepository);
-
             foreach (var line in File.ReadLines(@$"{request.FileAbsolutePath}"))
             {
-                var addUserCommand = new AddUserCommand()
+                await mediator.Send(new AddUserCommand()
                 {
-                    User = this.MapFileLineToUser(line)
-                };           
-                
-                await addUserCommandHandler.Handle(addUserCommand, cancellationToken);
+                    User = UsersFileFormatter.MapFileLineToUser(line)
+                }, cancellationToken);           
             }        
 
             return true;
-        }
-
-        private User MapFileLineToUser(string line)
-        {
-            var userRawData = line.Split(',');
-
-            return new User() {
-                Name = userRawData[0],
-                Email = userRawData[1],
-                Phone = userRawData[2],
-                Address = userRawData[3],
-                UserType = Enum.Parse<UserType>(userRawData[4]),
-                Money = decimal.Parse(userRawData[5])
-            };
-        }
+        }      
     }
 }

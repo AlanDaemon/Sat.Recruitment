@@ -3,7 +3,7 @@ using Sat.Recruitment.Domain.Shared.Repository;
 
 namespace Sat.Recruitment.Domain.Features.Users.Repository
 {
-    public interface IUserRepository : IAsyncRepository<User>
+    public interface IUserRepository : IBaseRepository<User>
     {
 
     }

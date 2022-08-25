@@ -9,51 +9,38 @@ using System.Threading.Tasks;
 
 namespace Sat.Recruitment.Infraestructure.Features.Shared
 {
-    public abstract class BaseRepository<T> : IAsyncRepository<T> where T : class
+    public abstract class BaseRepository<T> : IBaseRepository<T> where T : class
     {
-        protected RecruitmentDbContext context { get; set; }
+        protected RecruitmentDbContext Context { get; set; }
         public BaseRepository(RecruitmentDbContext context)
         {
-            this.context = context;
+            Context = context;
         }
-        public async Task<T> GetById(int id) => await this.context.Set<T>().FindAsync(id);
 
-        public Task<T> FirstOrDefault(Expression<Func<T, bool>> predicate)
-            => this.context.Set<T>().FirstOrDefaultAsync(predicate);
+        public async Task<T> GetById(int id) => await Context.Set<T>().FindAsync(id);              
+
+        public async Task<IEnumerable<T>> GetWhere(Expression<Func<T, bool>> predicate)
+        {
+            return await Context.Set<T>().Where(predicate).ToListAsync();
+        }
 
         public async Task<T> Add(T entity)
         {
-            await this.context.Set<T>().AddAsync(entity);
-            await this.context.SaveChangesAsync();
+            await Context.Set<T>().AddAsync(entity);
+            await Context.SaveChangesAsync();
             return entity;
         }
 
         public Task Update(T entity)
         {
-            this.context.Entry(entity).State = EntityState.Modified;
-            return this.context.SaveChangesAsync();
+            Context.Entry(entity).State = EntityState.Modified;
+            return Context.SaveChangesAsync();
         }
 
         public Task Remove(T entity)
         {
-            this.context.Set<T>().Remove(entity);
-            return this.context.SaveChangesAsync();
+            Context.Set<T>().Remove(entity);
+            return Context.SaveChangesAsync();
         }
-
-        public async Task<IEnumerable<T>> GetAll()
-        {
-            return await this.context.Set<T>().ToListAsync();
-        }
-
-        public async Task<IEnumerable<T>> GetWhere(Expression<Func<T, bool>> predicate)
-        {
-            return await this.context.Set<T>().Where(predicate).ToListAsync();
-        }
-
-        public Task<int> CountAll() => this.context.Set<T>().CountAsync();
-
-        public Task<int> CountWhere(Expression<Func<T, bool>> predicate)
-            => this.context.Set<T>().CountAsync(predicate);
-
     }
 }

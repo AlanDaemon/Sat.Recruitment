@@ -18,7 +18,7 @@ namespace Sat.Recruitment.API.Models.Users
         public string Phone { get; set; }
         
         [Required(AllowEmptyStrings = false, ErrorMessage = "{0} is required.")]
-        public UserType UserType { get; set; }
+        public UserTypes UserType { get; set; }
         public decimal Money { get; set; }
     }
 }

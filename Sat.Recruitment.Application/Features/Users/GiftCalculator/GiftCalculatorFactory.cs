@@ -5,15 +5,15 @@ namespace Sat.Recruitment.Application.Features.Users.GiftCalculator
 {
     public class GiftCalculatorFactory
     {
-        private static readonly IDictionary<UserType, IGiftCalculator>
-          calculators = new Dictionary<UserType, IGiftCalculator>()
+        private static readonly IDictionary<UserTypes, IGiftCalculator>
+          calculators = new Dictionary<UserTypes, IGiftCalculator>()
           {
-              { UserType.Normal, new NormalGiftCalculator() },
-              { UserType.Premium, new PremiumGiftCalculator() },
-              { UserType.SuperUser, new SuperUserGiftCalculator() }
+              { UserTypes.Normal, new NormalGiftCalculator() },
+              { UserTypes.Premium, new PremiumGiftCalculator() },
+              { UserTypes.SuperUser, new SuperUserGiftCalculator() }
           };
 
-        public static IGiftCalculator GetCalculator(UserType userType)
+        public static IGiftCalculator GetCalculator(UserTypes userType)
         {
             return calculators[userType];
         }
